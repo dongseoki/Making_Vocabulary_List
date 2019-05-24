@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FixWordWindow">
+
+    <EditText
+        android:id="@+id/OriginalSpellingEdit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/OriginalMeaningView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/OriginalSpellingView" />
+
+    <EditText
+        android:id="@+id/FixRankEdit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/SaveButton"
+        app:layout_constraintEnd_toEndOf="@+id/FixMeaningEdit"
+        app:layout_constraintStart_toStartOf="@+id/FixMeaningEdit"
+        app:layout_constraintTop_toBottomOf="@+id/FixRankView" />
+
+    <EditText
+        android:id="@+id/FixMeaningEdit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/FixRankView"
+        app:layout_constraintEnd_toEndOf="@+id/FixSpellingEdit"
+        app:layout_constraintStart_toStartOf="@+id/FixSpellingEdit"
+        app:layout_constraintTop_toBottomOf="@+id/FixMeaningView" />
+
+    <EditText
+        android:id="@+id/FixSpellingEdit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/FixMeaningView"
+        app:layout_constraintEnd_toEndOf="@+id/OriginalMeaningEdit"
+        app:layout_constraintStart_toStartOf="@+id/OriginalMeaningEdit"
+        app:layout_constraintTop_toBottomOf="@+id/FixSpellingView" />
+
+    <EditText
+        android:id="@+id/OriginalMeaningEdit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/FixSpellingView"
+        app:layout_constraintEnd_toEndOf="@+id/OriginalSpellingEdit"
+        app:layout_constraintStart_toStartOf="@+id/OriginalSpellingEdit"
+        app:layout_constraintTop_toBottomOf="@+id/OriginalMeaningView" />
+
+    <TextView
+        android:id="@+id/WordFixView"
+        android:layout_width="135dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:text="TextView"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/OriginalSpellingView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="단어수정" />
+
+    <TextView
+        android:id="@+id/OriginalSpellingView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/OriginalSpellingEdit"
+        app:layout_constraintStart_toStartOf="@+id/OriginalSpellingEdit"
+        app:layout_constraintTop_toBottomOf="@+id/WordFixView"
+        tools:text="기존 spelling" />
+
+    <TextView
+        android:id="@+id/OriginalMeaningView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="기존 meaning"
+        app:layout_constraintBottom_toTopOf="@+id/OriginalMeaningEdit"
+        app:layout_constraintStart_toStartOf="@+id/OriginalSpellingEdit"
+        app:layout_constraintTop_toBottomOf="@+id/OriginalSpellingEdit" />
+
+    <TextView
+        android:id="@+id/FixSpellingView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="수정될 spelling"
+        app:layout_constraintBottom_toTopOf="@+id/FixSpellingEdit"
+        app:layout_constraintStart_toStartOf="@+id/OriginalMeaningEdit"
+        app:layout_constraintTop_toBottomOf="@+id/OriginalMeaningEdit" />
+
+    <TextView
+        android:id="@+id/FixMeaningView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="수정될 meaning"
+        app:layout_constraintBottom_toTopOf="@+id/FixMeaningEdit"
+        app:layout_constraintStart_toStartOf="@+id/FixSpellingEdit"
+        app:layout_constraintTop_toBottomOf="@+id/FixSpellingEdit" />
+
+    <TextView
+        android:id="@+id/FixRankView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="수정될 rank"
+        app:layout_constraintBottom_toTopOf="@+id/FixRankEdit"
+        app:layout_constraintStart_toStartOf="@+id/FixMeaningEdit"
+        app:layout_constraintTop_toBottomOf="@+id/FixMeaningEdit" />
+
+    <Button
+        android:id="@+id/SaveButton"
+        android:layout_width="124dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="59dp"
+        android:text="저장"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FixRankEdit" />
+</android.support.constraint.ConstraintLayout>

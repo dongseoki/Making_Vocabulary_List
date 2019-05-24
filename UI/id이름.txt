@@ -1,0 +1,87 @@
+sign_window
+로그인 버튼 android:id="@+id/loginButton"
+WordLike android:id="@+id/WordLikeView"
+
+main_window
+검색버튼android:id="@+id/SearchButton"
+입력창 android:id="@+id/SearchText"
+단어장목록버튼android:id="@+id/WordBookWindowButton"
+알림설정버튼 android:id="@+id/NotificationWindowButton"
+회원탈퇴버튼android:id="@+id/WithdrawlButton"
+
+word_book_window
+다운로드버튼 android:id="@+id/DownloadButton"
+제목 android:id="@+id/WordBookView"
+추가버튼android:id="@+id/AddButton"
+단어장리스트 android:id="@+id/WordsListView"
+삭제버튼android:id="@+id/DeleteButton"
+수정버튼android:id="@+id/FixButton"
+공유버튼android:id="@+id/ShareButton"
+
+words_list_window
+제목 android:id="@+id/WordsListView"
+시험android:id="@+id/ExamButton"
+단어리스트 android:id="@+id/Word"
+듣기android:id="@+id/ListenButton"
+삭제 android:id="@+id/ DeleteButton"
+수정android:id="@+id/FixButton"
+추가 android:id="@+id/AddButton"
+
+notification_window
+알림설정창 android:id="@+id/NotificationView"
+푸시알림 android:id="@+id/Notification"
+스위치android:id="@+id/Switch"
+알림시간설정android:id="@+id/TimeView"
+위치설정 android:id="@+id/SelectionView"
+영역설정 android:id="@+id/RandView"
+시간스피너 android:id="@+id/Time"
+위치스피너 android:id="@+id/Selection"
+랭크스피너 android:id="@+id/Difficulty"
+난이도스피너 android:id="@+id/Rank"
+
+exam
+랜덤단어/문장android:id="@+id/ExamView"
+오답1 android:id="@+id/Button1"
+오답2 android:id="@+id/Button2"
+오답3 android:id="@+id/Button3"
+오답4 android:id="@+id/Button4"
+
+word_lists_download
+검색버튼 android:id="@+id/SearchButton"
+검색창 android:id="@+id/SearchEdit"
+조회목록 android:id="@+id/SearchView"
+삭제버튼 android:id="@+id/DeleteButton"
+엿보기버튼 android:id="@+id/PeekButton"
+다운버튼 android:id="@+id/DownloadButton"
+텍스트뷰에 android:scrollbars="vertical" 넣어서 자바소스코드 추가하면 스크롤 가능
+
+fix_word_window
+단어수정 android:id="@+id/WordFix"
+기존스펠링뷰 android:id="@+id/OriginalSpellingView"
+기존스펠링edit android:id="@+id/OriginalSpellingEdit"
+기존미닝뷰 android:id="@+id/OriginalMeaningView"
+기존미닝edit android:id="@+id/OriginalMeaningEdit"
+수정스펠링뷰android:id="@+id/FixSpellingView"
+수정스펠링editandroid:id="@+id/FixSpellingEdit"
+수정미닝뷰 android:id="@+id/FixMeaningView"
+수정미닝edit android:id="@+id/FixMeaningEdit"
+수정랭크뷰 android:id="@+id/FixRankView"
+수정랭크edit android:id="@+id/FixRankEdit"
+저장버튼 android:id="@+id/SaveButton"
+
+add_word_window
+단어추가 android:id="@+id/AddWordView"
+추가스펠링뷰 android:id="@+id/AddSpellingView"
+추가스펠링edit android:id="@+id/AddSpellingEdit"
+추가미닝뷰 android:id="@+id/AddMeaningView"
+추가미닝edit android:id="@+id/AddMeaningEdit"
+추가센텐스뷰 android:id="@+id/AddSentenceView"
+추가센텐스edit android:id="@+id/AddSentenceEdit"
+저장버튼 android:id="@+id/SaveButton"
+
+pop_up_words_list_window
+android:id="@+id/DifficultyView"
+android:id="@+id/NormalButton"
+android:id="@+id/HardButton"
+
+
