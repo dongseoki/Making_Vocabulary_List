@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WordListsDownloadItem"></activity>
+        <activity android:name=".DeletePopUp"></activity>
+        <activity android:name=".PreviewPopUpWord" />
+        <activity android:name=".SearchingResultItem" />
+        <activity android:name=".SearchingResultWindow" />
+        <activity android:name=".WordListsDownloadItem" />
         <activity android:name=".WordsListItem" />
         <activity android:name=".WordBookItemActivity" />
         <activity android:name=".PopUpWordsListWindow" />
