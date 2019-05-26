@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FixWordWindow">
+
+    <EditText
+        android:id="@+id/existingWordEdit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/existingMeaningView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/existingWord" />
+
+    <EditText
+        android:id="@+id/changedRankEdit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/applyButton"
+        app:layout_constraintEnd_toEndOf="@+id/changedMeaningEdit"
+        app:layout_constraintStart_toStartOf="@+id/changedMeaningEdit"
+        app:layout_constraintTop_toBottomOf="@+id/changedRankView" />
+
+    <EditText
+        android:id="@+id/changedMeaningEdit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/changedRankView"
+        app:layout_constraintEnd_toEndOf="@+id/changedWordEdit"
+        app:layout_constraintStart_toStartOf="@+id/changedWordEdit"
+        app:layout_constraintTop_toBottomOf="@+id/changedMeaningView" />
+
+    <EditText
+        android:id="@+id/changedWordEdit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/changedMeaningView"
+        app:layout_constraintEnd_toEndOf="@+id/existingMeaningEdit"
+        app:layout_constraintStart_toStartOf="@+id/existingMeaningEdit"
+        app:layout_constraintTop_toBottomOf="@+id/changedWordView" />
+
+    <EditText
+        android:id="@+id/existingMeaningEdit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/changedWordView"
+        app:layout_constraintEnd_toEndOf="@+id/existingWordEdit"
+        app:layout_constraintStart_toStartOf="@+id/existingWordEdit"
+        app:layout_constraintTop_toBottomOf="@+id/existingMeaningView" />
+
+    <TextView
+        android:id="@+id/wordRetouchView"
+        android:layout_width="135dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:text="TextView"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/existingWord"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="단어수정" />
+
+    <TextView
+        android:id="@+id/existingWord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/existingWordEdit"
+        app:layout_constraintStart_toStartOf="@+id/existingWordEdit"
+        app:layout_constraintTop_toBottomOf="@+id/wordRetouchView"
+        tools:text="기존 spelling" />
+
+    <TextView
+        android:id="@+id/existingMeaningView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="기존 meaning"
+        app:layout_constraintBottom_toTopOf="@+id/existingMeaningEdit"
+        app:layout_constraintStart_toStartOf="@+id/existingWordEdit"
+        app:layout_constraintTop_toBottomOf="@+id/existingWordEdit" />
+
+    <TextView
+        android:id="@+id/changedWordView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="수정될 spelling"
+        app:layout_constraintBottom_toTopOf="@+id/changedWordEdit"
+        app:layout_constraintStart_toStartOf="@+id/existingMeaningEdit"
+        app:layout_constraintTop_toBottomOf="@+id/existingMeaningEdit" />
+
+    <TextView
+        android:id="@+id/changedMeaningView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="수정될 meaning"
+        app:layout_constraintBottom_toTopOf="@+id/changedMeaningEdit"
+        app:layout_constraintStart_toStartOf="@+id/changedWordEdit"
+        app:layout_constraintTop_toBottomOf="@+id/changedWordEdit" />
+
+    <TextView
+        android:id="@+id/changedRankView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:text="수정될 rank"
+        app:layout_constraintBottom_toTopOf="@+id/changedRankEdit"
+        app:layout_constraintStart_toStartOf="@+id/changedMeaningEdit"
+        app:layout_constraintTop_toBottomOf="@+id/changedMeaningEdit" />
+
+    <Button
+        android:id="@+id/applyButton"
+        android:layout_width="124dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="59dp"
+        android:text="저장"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/changedRankEdit" />
+</android.support.constraint.ConstraintLayout>
