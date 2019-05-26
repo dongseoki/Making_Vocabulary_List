@@ -8,6 +8,6 @@ public class FixWordWindow extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fix_word_window);
+        setContentView(R.layout.activity_word_retouch_window);
     }
 }

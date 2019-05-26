@@ -8,6 +8,6 @@ public class WordBookWindow extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_word_book_window);
+        setContentView(R.layout.activity_word_book_list_window);
     }
 }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/Button1"
+        android:id="@+id/button1"
         android:layout_width="125dp"
         android:layout_height="100dp"
         android:layout_marginStart="56dp"
@@ -17,7 +17,7 @@
         tools:text="오답1" />
 
     <Button
-        android:id="@+id/Button2"
+        android:id="@+id/button2"
         android:layout_width="125dp"
         android:layout_height="100dp"
         android:layout_marginTop="288dp"
@@ -27,29 +27,29 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/Button3"
+        android:id="@+id/button3"
         android:layout_width="125dp"
         android:layout_height="100dp"
         android:layout_marginBottom="204dp"
         android:text="오답3"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/Button1"
+        app:layout_constraintEnd_toEndOf="@+id/button1"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/Button1" />
+        app:layout_constraintStart_toStartOf="@+id/button1" />
 
     <Button
-        android:id="@+id/Button4"
+        android:id="@+id/button4"
         android:layout_width="125dp"
         android:layout_height="100dp"
         android:layout_marginBottom="204dp"
         android:text="정답"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/Button2"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/Button2" />
+        app:layout_constraintStart_toStartOf="@+id/button2" />
 
     <TextView
-        android:id="@+id/ExamView"
+        android:id="@+id/examView"
         android:layout_width="220dp"
         android:layout_height="94dp"
         android:layout_marginTop="133dp"

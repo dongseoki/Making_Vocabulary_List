@@ -7,7 +7,7 @@
     tools:context=".SignWindow">
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/signInButton"
         android:layout_width="121dp"
         android:layout_height="67dp"
         android:layout_marginBottom="127dp"
@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/WordLikeView"
+        android:id="@+id/wordLikeView"
         android:layout_width="256dp"
         android:layout_height="133dp"
         android:layout_marginStart="8dp"

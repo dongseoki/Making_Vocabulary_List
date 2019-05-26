@@ -8,7 +8,7 @@
 
 
     <Button
-        android:id="@+id/DeleteButton"
+        android:id="@+id/deleteButton"
         android:layout_width="100dp"
         android:layout_height="60dp"
         android:layout_marginStart="20dp"
@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/FixButton"
+        android:id="@+id/retouchButton"
         android:layout_width="100dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
@@ -32,7 +32,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/AddButton"
+        android:id="@+id/createButton"
         android:layout_width="100dp"
         android:layout_height="60dp"
         android:layout_marginEnd="20dp"
@@ -42,23 +42,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/WordsListView"
-        android:layout_width="369dp"
-        android:layout_height="523dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="8dp"
-        android:text="단어장"
-        android:scrollbars="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
-        android:id="@+id/DownloadButton"
+        android:id="@+id/downloadButton"
         android:layout_width="100dp"
         android:layout_height="60dp"
         android:layout_marginStart="20dp"
@@ -69,7 +54,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/ShareButton"
+        android:id="@+id/shareButton"
         android:layout_width="100dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
@@ -80,7 +65,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/wordBookView"
         android:layout_width="167dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
@@ -92,4 +77,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/wordBookListsTable"
+        android:layout_width="371dp"
+        android:layout_height="545dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/retouchButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.524" />
 </android.support.constraint.ConstraintLayout>

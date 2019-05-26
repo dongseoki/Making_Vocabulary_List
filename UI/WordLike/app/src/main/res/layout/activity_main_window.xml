@@ -9,18 +9,18 @@
 
 
     <EditText
-        android:id="@+id/SearchText"
+        android:id="@+id/searchBar"
         android:layout_width="244dp"
         android:layout_height="53dp"
         android:layout_marginTop="284dp"
         android:layout_marginBottom="54dp"
-        app:layout_constraintBottom_toTopOf="@+id/NotificationWindowButton"
+        app:layout_constraintBottom_toTopOf="@+id/notificationButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/WordBookWindowButton"
+        android:id="@+id/wordbookListButton"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginBottom="98dp"
@@ -28,34 +28,34 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/WithdrawlButton" />
+        app:layout_constraintTop_toBottomOf="@+id/memberSecessionButton" />
 
     <Button
-        android:id="@+id/NotificationWindowButton"
+        android:id="@+id/notificationButton"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="59dp"
         android:text="알림설정"
-        app:layout_constraintBottom_toTopOf="@+id/WithdrawlButton"
+        app:layout_constraintBottom_toTopOf="@+id/memberSecessionButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SearchText" />
+        app:layout_constraintTop_toBottomOf="@+id/searchBar" />
 
     <Button
-        android:id="@+id/WithdrawlButton"
+        android:id="@+id/memberSecessionButton"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_marginBottom="47dp"
         android:text="회원탈퇴"
-        app:layout_constraintBottom_toTopOf="@+id/WordBookWindowButton"
-        app:layout_constraintEnd_toEndOf="@+id/WordBookWindowButton"
-        app:layout_constraintStart_toStartOf="@+id/WordBookWindowButton"
-        app:layout_constraintTop_toBottomOf="@+id/NotificationWindowButton" />
+        app:layout_constraintBottom_toTopOf="@+id/wordbookListButton"
+        app:layout_constraintEnd_toEndOf="@+id/wordbookListButton"
+        app:layout_constraintStart_toStartOf="@+id/wordbookListButton"
+        app:layout_constraintTop_toBottomOf="@+id/notificationButton" />
 
     <SearchView
-        android:id="@+id/SearchButton"
+        android:id="@+id/searchButton"
         android:layout_width="42dp"
         android:layout_height="44dp"
         android:layout_marginStart="8dp"
@@ -63,7 +63,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/SearchText"
+        app:layout_constraintEnd_toStartOf="@+id/searchBar"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
