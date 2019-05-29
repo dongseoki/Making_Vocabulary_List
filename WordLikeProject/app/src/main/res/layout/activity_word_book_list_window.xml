@@ -48,6 +48,7 @@
         android:layout_height="60dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
+        android:onClick="downloadButtonOnClicked"
         android:text="다운"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"

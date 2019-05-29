@@ -1,7 +1,7 @@
 package com.example.wordlikeproject;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 public class NotificationWindow extends AppCompatActivity {
 
@@ -10,4 +10,5 @@ public class NotificationWindow extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification_window);
     }
+
 }
