@@ -10,11 +10,11 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemViewHolder> {
+public class RecyclerAdapter2 extends RecyclerView.Adapter<RecyclerAdapter2.ItemViewHolder> {
 
     // adapter에 들어갈 list 입니다.
-    private ArrayList<WordsList> listData = new ArrayList<>();
-    private WordsList data;
+    private ArrayList<Word> listData = new ArrayList<>();
+    private Word data;
     private Context context;
 
     @NonNull
@@ -39,7 +39,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
         return listData.size();
     }
 
-    void addItem(WordsList data) {
+    void addItem(Word data) {
         // 외부에서 item을 추가시킬 함수입니다.
         listData.add(data);
     }
@@ -49,7 +49,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
     class ItemViewHolder extends RecyclerView.ViewHolder {
 
         private TextView titleView;
-        private WordsList data;
+        private Word data;
 
         ItemViewHolder(View itemView) {
             super(itemView);
@@ -57,7 +57,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
             titleView = itemView.findViewById(R.id.titleView);
         }
 
-        void onBind(WordsList data) {
+        void onBind(Word data) {
             this.data = data;
             titleView.setText(data.getTitle());
         }

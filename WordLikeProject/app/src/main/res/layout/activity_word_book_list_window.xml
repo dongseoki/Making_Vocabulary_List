@@ -6,89 +6,135 @@
     android:layout_height="match_parent"
     tools:context=".WordBookListWindow">
 
+    <LinearLayout
+        android:id="@+id/upsideButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/deleteButton"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="16dp"
-        android:text="삭제"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        <Button
+            android:id="@+id/downloadButton"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:onClick="downloadButtonOnClicked"
+            android:text="다운"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/wordBookView"
+            android:layout_width="167dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:gravity="center"
+            android:text="단어장 목록"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@+id/wordBookListsTable"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/shareButton"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:text="공유"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/titleWordsList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:hint="tableName"
+        android:textColor="#000000"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/belowButtons"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/retouchButton"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
+    <LinearLayout
+        android:id="@+id/belowButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
-        android:text="수정"
-        android:textSize="24sp"
+        android:layout_marginRight="8dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <Button
-        android:id="@+id/createButton"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="16dp"
-        android:text="추가"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="16dp"
+            android:onClick="deleteButtonOnClicked"
+            android:text="삭제"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/downloadButton"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
-        android:onClick="downloadButtonOnClicked"
-        android:text="다운"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/retouchButton"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:text="수정"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/shareButton"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="20dp"
-        android:text="공유"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/createButton"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="16dp"
+            android:onClick="createButtonOnClicked"
+            android:text="추가"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/wordBookView"
-        android:layout_width="167dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:gravity="center"
-        android:text="단어장 목록"
-        android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/wordBookListsTable"
-        android:layout_width="371dp"
-        android:layout_height="545dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/retouchButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/titleWordsList"
+        app:layout_constraintEnd_toEndOf="@+id/belowButtons"
+        app:layout_constraintStart_toStartOf="@+id/upsideButtons"
+        app:layout_constraintTop_toBottomOf="@+id/upsideButtons"
         app:layout_constraintVertical_bias="0.524" />
 </android.support.constraint.ConstraintLayout>
