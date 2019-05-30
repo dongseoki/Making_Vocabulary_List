@@ -23,7 +23,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
         // LayoutInflater를 이용하여 전 단계에서 만들었던 item.xml을 inflate 시킵니다.
         // return 인자는 ViewHolder 입니다.
         context = parent.getContext();
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.words_list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.word_list_item, parent, false);
         return new ItemViewHolder(view);
     }
 
@@ -54,7 +54,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
         ItemViewHolder(View itemView) {
             super(itemView);
 
-            titleView = itemView.findViewById(R.id.titleView);
+            titleView = itemView.findViewById(R.id.spellingView);
         }
 
         void onBind(WordsList data) {

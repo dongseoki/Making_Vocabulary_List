@@ -23,7 +23,7 @@
             android:gravity="center_vertical">
 
             <TextView
-                android:id="@+id/titleView"
+                android:id="@+id/spellingView"
                 android:layout_width="299dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"

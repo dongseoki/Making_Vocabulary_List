@@ -6,6 +6,13 @@ public class Word {
     private String wordSentence;
     private int rank;
 
+    public Word(String wordSpelling, String wordMeaning, String wordSentence, int rank) {
+        this.wordSpelling = wordSpelling;
+        this.wordMeaning = wordMeaning;
+        this.wordSentence = wordSentence;
+        this.rank = rank;
+    }
+
     public String getWordSpelling() {
         return wordSpelling;
     }

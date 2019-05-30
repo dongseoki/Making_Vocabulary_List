@@ -23,7 +23,7 @@ public class RecyclerAdapter2 extends RecyclerView.Adapter<RecyclerAdapter2.Item
         // LayoutInflater를 이용하여 전 단계에서 만들었던 item.xml을 inflate 시킵니다.
         // return 인자는 ViewHolder 입니다.
         context = parent.getContext();
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.words_list_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.words_item, parent, false);
         return new ItemViewHolder(view);
     }
 
@@ -48,18 +48,27 @@ public class RecyclerAdapter2 extends RecyclerView.Adapter<RecyclerAdapter2.Item
     // 여기서 subView를 setting 해줍니다.
     class ItemViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView titleView;
+        private TextView spellingView;
+        private TextView rankView;
+        private TextView meaningView;
+        private TextView sentenceView;
         private Word data;
 
         ItemViewHolder(View itemView) {
             super(itemView);
+            spellingView = itemView.findViewById(R.id.spellingView);
+            rankView = itemView.findViewById(R.id.rankView);
+            meaningView = itemView.findViewById(R.id.meaningView);
+            sentenceView = itemView.findViewById(R.id.sentenceView);
 
-            titleView = itemView.findViewById(R.id.titleView);
         }
 
         void onBind(Word data) {
             this.data = data;
-            titleView.setText(data.getTitle());
+            spellingView.setText(data.getWordSpelling());
+            rankView.setText(data.getRank());
+            meaningView.setText(data.getWordMeaning());
+            sentenceView.setText(data.getWordSentence());
         }
     }
 }
