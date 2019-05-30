@@ -24,6 +24,8 @@ public class WordBookListWindow extends AppCompatActivity {
     private SQLiteDatabase db;
     boolean databaseCreated;
     EditText titleWordsList;
+    int selected;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,23 +33,31 @@ public class WordBookListWindow extends AppCompatActivity {
         init();
         createDatabase("wordlist");
         //boolean isOpen = openDatabase();
+        selected = -1;
 
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getApplicationContext(), recyclerView,
                 new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
                         // event code
-                        Toast.makeText(getApplicationContext(), "title2 : "+arrTblNames.get(position).toString() , Toast.LENGTH_SHORT).show();
+
                         Intent intent = new Intent(getApplicationContext(), WordsListWindow.class);
                         intent.putExtra("title", arrTblNames.get(position).toString());
                         startActivityForResult(intent, 111);
+                    }
 
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+                        Toast.makeText(getApplicationContext(), arrTblNames.get(position).toString() + "이 선택됨.", Toast.LENGTH_SHORT).show();
+                        selected = position;
                     }
                 }));
 
+        //출처: https://liveonthekeyboard.tistory.com/entry/안드로이드-RecyclerView-2-OnItemClick-리스너-구현 [키위남]
+
         Log.d(TAG, "what is it");
 
-        titleWordsList = (EditText)findViewById(R.id.titleWordsList);
+        titleWordsList = (EditText) findViewById(R.id.titleWordsList);
         getAndShowTables();
     }
 
@@ -61,46 +71,41 @@ public class WordBookListWindow extends AppCompatActivity {
 
             databaseCreated = true;
             println("database is created.");
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
             println("database is not created.");
         }
     }
 
-    public void deleteButtonOnClicked(View view){
+    public void deleteButtonOnClicked(View view) {
         try {
-            String DELETE_SQL = "CREATE TABLE IF NOT EXISTS "+titleWordsList.getText().toString()+" ("
-                    +"spelling text PRIMARY KEY NOT NULL, "
-                    +"meaning text NOT NULL, "
-                    +"example text NOT NULL, "
-                    +"rank integer NOT NULL);";
-            //db.execSQL(CREATE_SQL);
-            String INSERT_SQL = "insert into "+ "table_list" + " (title) " + "values " + " (\"" +titleWordsList.getText().toString() + "\");";
-            db.execSQL(INSERT_SQL);
-        } catch(Exception ex) {
+            String DELETE_SQL = "DROP TABLE IF EXISTS " + arrTblNames.get(selected).toString() ;
+            String DELETE_from_table_list = "DELETE FROM table_list WHERE title = " + "\"" + arrTblNames.get(selected).toString() +"\"";
+            db.execSQL(DELETE_SQL);
+            db.execSQL(DELETE_from_table_list);
+        } catch (Exception ex) {
             Log.e(TAG, "Exception in CREATE_SQL", ex);
         }
         getAndShowTables();
     }
 
 
-    public void createButtonOnClicked(View view){
+    public void createButtonOnClicked(View view) {
         try {
-            String CREATE_SQL = "CREATE TABLE IF NOT EXISTS "+titleWordsList.getText().toString()+" ("
-                    +"spelling text PRIMARY KEY NOT NULL, "
-                    +"meaning text NOT NULL, "
-                    +"example text NOT NULL, "
-                    +"rank integer NOT NULL);";
+            String CREATE_SQL = "CREATE TABLE IF NOT EXISTS " + titleWordsList.getText().toString() + " ("
+                    + "spelling text PRIMARY KEY NOT NULL, "
+                    + "meaning text NOT NULL, "
+                    + "example text NOT NULL, "
+                    + "rank integer NOT NULL);";
             db.execSQL(CREATE_SQL);
-            String INSERT_SQL = "insert into "+ "table_list" + " (title) " + "values " + " (\"" +titleWordsList.getText().toString() + "\");";
+            String INSERT_SQL = "insert into " + "table_list" + " (title) " + "values " + " (\"" + titleWordsList.getText().toString() + "\");";
             db.execSQL(INSERT_SQL);
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             Log.e(TAG, "Exception in CREATE_SQL", ex);
         }
         getAndShowTables();
         //출처: https://toris.tistory.com/entry/안드로이드에서-SQLite사용 [토리의 만물상]
     }
-
 
 
     private void getAndShowTables() {
@@ -109,18 +114,18 @@ public class WordBookListWindow extends AppCompatActivity {
         arrTblNames = new ArrayList<String>();
 
 
-        String CREATE_SQL = "CREATE TABLE IF NOT EXISTS "+"table_list" +"(title text PRIMARY KEY NOT NULL)";
+        String CREATE_SQL = "CREATE TABLE IF NOT EXISTS " + "table_list" + "(title text PRIMARY KEY NOT NULL)";
 
         try {
             db.execSQL(CREATE_SQL);
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             Log.e(TAG, "Exception in CREATE_SQL", ex);
         }
         Cursor c = db.rawQuery("SELECT title FROM table_list", null);
 
         if (c.moveToFirst()) {
-            while ( !c.isAfterLast() ) {
-                arrTblNames.add( c.getString(c.getColumnIndex("title")) );
+            while (!c.isAfterLast()) {
+                arrTblNames.add(c.getString(c.getColumnIndex("title")));
                 c.moveToNext();
             }
         }
@@ -136,7 +141,7 @@ public class WordBookListWindow extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
-    public void downloadButtonOnClicked(View view){
+    public void downloadButtonOnClicked(View view) {
         Intent intent = new Intent(this, WordsListsDownloadCenter.class);
         startActivityForResult(intent, 111);
     }
@@ -161,7 +166,6 @@ public class WordBookListWindow extends AppCompatActivity {
         Log.d(TAG, msg);
         //status.append("\n" + msg);
     }
-
 
 
 }

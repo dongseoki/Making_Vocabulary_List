@@ -66,7 +66,7 @@ public class RecyclerAdapter2 extends RecyclerView.Adapter<RecyclerAdapter2.Item
         void onBind(Word data) {
             this.data = data;
             spellingView.setText(data.getWordSpelling());
-            rankView.setText(data.getRank());
+            rankView.setText(String.valueOf(data.getRank()));
             meaningView.setText(data.getWordMeaning());
             sentenceView.setText(data.getWordSentence());
         }

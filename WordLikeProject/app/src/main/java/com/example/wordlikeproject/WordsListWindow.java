@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class WordsListWindow extends AppCompatActivity {
     private SQLiteDatabase db;
     boolean databaseCreated;
     ArrayList<Word> words;
+    int selected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +37,53 @@ public class WordsListWindow extends AppCompatActivity {
         processIntent(intent);
         init();
         createDatabase("wordlist");
+
+        selected = -1;
+
+        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getApplicationContext(), recyclerView,
+                new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        // event code
+
+                    }
+
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+                        Toast.makeText(getApplicationContext(), words.get(position).getWordSpelling() + "이 선택됨.", Toast.LENGTH_SHORT).show();
+                        selected = position;
+                    }
+                }));
+
         getAndShowRecords();
     }
+    public void deleteButtonOnClicked(View view){
+        try {
+            String DELETE_from_table_list = "DELETE FROM " + title +" WHERE title = " + "\"" + words.get(selected).getWordSpelling() +"\"";
+            db.execSQL(DELETE_from_table_list);
+
+        } catch (Exception ex) {
+            Log.e(TAG, "Exception in CREATE_SQL", ex);
+        }
+        getAndShowRecords();
+    }
+    public void retouchButtonOnClicked(View view){
+        Intent intent = new Intent(this, WordAddWindow.class);
+        intent.putExtra("title", title);
+        intent.putExtra("spelling", words.get(selected).getWordSpelling());
+        startActivityForResult(intent, 111);
+    }
+    public void createButtonOnClicked(View view){
+        Intent intent = new Intent(this, WordAddWindow.class);
+        startActivityForResult(intent, 111);
+    }
+    public void listenWordPronounciationButtonOnclicked(View view){
+
+    }
+    public void examButtonOnClicked(View view){
+
+    }
+
     private void createDatabase(String name) {
         println("creating database [" + name + "].");
 
