@@ -19,21 +19,28 @@
         <activity android:name=".PopUpWordsListWindow" />
         <activity android:name=".AddWordWindow" />
         <activity android:name=".FixWordWindow" />
-        <activity android:name=".WordListsDownload" />
-        <activity android:name=".Exam" />
-        <activity android:name=".NotificationWindow" />
-        <activity android:name=".WordsListWindow" />
-        <activity android:name=".MainWindow" >
+        <activity android:name=".WordListsDownload" >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
-        </activity>
+    </activity>
+        <activity android:name=".Exam" />
+        <activity android:name=".NotificationWindow" />
+        <activity android:name=".WordsListWindow" />
+        <activity android:name=".MainWindow" />
+        <!--intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity-->
         <activity android:name=".SignWindow" />
         <activity android:name=".WordBookWindow">
 
         </activity>
     </application>
+        <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
