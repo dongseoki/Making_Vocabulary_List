@@ -88,6 +88,7 @@
         android:layout_width="126dp"
         android:layout_height="0dp"
         android:layout_marginBottom="60dp"
+        android:onClick="applyButtonOnClicked"
         android:text="저장"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"

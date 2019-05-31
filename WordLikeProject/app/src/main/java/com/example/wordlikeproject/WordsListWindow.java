@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,7 +23,6 @@ public class WordsListWindow extends AppCompatActivity {
     private int rank;
     public static final String TAG = "dbstate2";
     private RecyclerAdapter2 adapter;
-    private DatabaseHelper dbHelper;
     RecyclerView recyclerView;
     private SQLiteDatabase db;
     boolean databaseCreated;
@@ -59,7 +59,7 @@ public class WordsListWindow extends AppCompatActivity {
     }
     public void deleteButtonOnClicked(View view){
         try {
-            String DELETE_from_table_list = "DELETE FROM " + title +" WHERE title = " + "\"" + words.get(selected).getWordSpelling() +"\"";
+            String DELETE_from_table_list = "DELETE FROM " + title +" WHERE spelling = " + "\"" + words.get(selected).getWordSpelling() +"\"";
             db.execSQL(DELETE_from_table_list);
 
         } catch (Exception ex) {
@@ -68,17 +68,18 @@ public class WordsListWindow extends AppCompatActivity {
         getAndShowRecords();
     }
     public void retouchButtonOnClicked(View view){
-        Intent intent = new Intent(this, WordAddWindow.class);
+        Intent intent = new Intent(this, WordRetouchWindow.class);
         intent.putExtra("title", title);
         intent.putExtra("spelling", words.get(selected).getWordSpelling());
-        startActivityForResult(intent, 111);
+        startActivityForResult(intent, 112);
     }
     public void createButtonOnClicked(View view){
         Intent intent = new Intent(this, WordAddWindow.class);
+        intent.putExtra("title", title);
         startActivityForResult(intent, 111);
     }
-    public void listenWordPronounciationButtonOnclicked(View view){
-
+    public void listenButtonOnClicked(View view){
+        Toast.makeText(getApplicationContext(),words.get(selected).getWordSpelling()+"을 듣습니다!",Toast.LENGTH_LONG);
     }
     public void examButtonOnClicked(View view){
 
@@ -153,5 +154,16 @@ public class WordsListWindow extends AppCompatActivity {
         }
 
         adapter.notifyDataSetChanged();
+    }
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);/// result code sms ok ...
+        if(requestCode == 111 ||requestCode == 112){
+            try {
+                getAndShowRecords();
+                Toast.makeText(getApplicationContext(), "단어 생성 또는 추가 완료", Toast.LENGTH_SHORT).show();
+            } catch(Exception e) {
+                Log.d(TAG, "Exception in on ActivityResult");
+            }
+        }
     }
 }

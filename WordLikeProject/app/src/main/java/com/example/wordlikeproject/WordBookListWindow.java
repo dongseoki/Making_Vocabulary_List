@@ -141,9 +141,25 @@ public class WordBookListWindow extends AppCompatActivity {
         adapter.notifyDataSetChanged();
     }
 
+
+    public void retouchButtonOnClicked(View view) {
+        try {
+            String ALTER_SQL = "ALTER TABLE "+ arrTblNames.get(selected).toString()+" rename TO "+ titleWordsList.getText().toString();
+            db.execSQL(ALTER_SQL);
+            String UPDATE_SQL = "UPDATE table_list SET title = '"+titleWordsList.getText().toString()+"' WHERE title = '"+arrTblNames.get(selected).toString()+"'";
+            db.execSQL(UPDATE_SQL);
+        } catch (Exception ex) {
+            Log.e(TAG, "Exception in ALTER_AND_UPDATE_SQL", ex);
+        }
+        getAndShowTables();
+        //출처: https://toris.tistory.com/entry/안드로이드에서-SQLite사용 [토리의 만물상]
+    }
     public void downloadButtonOnClicked(View view) {
         Intent intent = new Intent(this, WordsListsDownloadCenter.class);
         startActivityForResult(intent, 111);
+    }
+    public void shareButtonOnClicked(View view) {
+        Toast.makeText(getApplicationContext(), arrTblNames.get(selected).toString() + "을 공유합니다!", Toast.LENGTH_SHORT).show();
     }
 
     private boolean openDatabase() {

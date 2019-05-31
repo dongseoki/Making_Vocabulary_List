@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".FixWordWindow">
 
-    <EditText
+    <TextView
         android:id="@+id/existingWordEdit"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -48,7 +48,7 @@
         app:layout_constraintStart_toStartOf="@+id/existingMeaningEdit"
         app:layout_constraintTop_toBottomOf="@+id/changedWordView" />
 
-    <EditText
+    <TextView
         android:id="@+id/existingMeaningEdit"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -129,6 +129,7 @@
         android:layout_width="124dp"
         android:layout_height="61dp"
         android:layout_marginBottom="59dp"
+        android:onClick="applyButtonOnClicked"
         android:text="저장"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
