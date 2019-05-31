@@ -14,17 +14,10 @@
 
         <SearchView
             android:id="@+id/searchButton"
-            android:layout_width="0dp"
+            android:layout_width="282dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"></SearchView>
-
-        <EditText
-            android:id="@+id/searchEdit"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_weight="10"
-            android:textSize="24sp" />
+            android:layout_weight="1"
+            android:clickable="false" />
 
 
     </LinearLayout>
@@ -33,14 +26,16 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10">
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="5dp"
-            android:layout_marginTop="5dp">
+            android:clickable="true">
 
         </android.support.v7.widget.RecyclerView>
     </LinearLayout>
@@ -60,6 +55,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="5dp"
             android:layout_weight="1"
+            android:onClick="onDeleteButtonClicked"
             android:text="삭제"
             android:textSize="24sp" />
 
@@ -72,6 +68,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="5dp"
             android:layout_weight="1"
+            android:onClick="onPeepButtonClicked"
             android:text="엿보기"
             android:textSize="24sp" />
 
@@ -84,6 +81,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="5dp"
             android:layout_weight="1"
+            android:onClick="onDownButtonClicked"
             android:text="다운"
             android:textSize="24sp" />
     </LinearLayout>
