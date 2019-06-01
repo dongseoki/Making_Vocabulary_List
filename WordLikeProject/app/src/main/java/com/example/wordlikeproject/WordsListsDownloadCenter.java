@@ -1,10 +1,8 @@
 package com.example.wordlikeproject;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -23,14 +21,16 @@ public class WordsListsDownloadCenter extends AppCompatActivity {
     protected String getWordLists(String... urls){
         StringBuilder jsonHtml = new StringBuilder();
         try{
-            URL url - new URL(urls[0]);
+            URL url = new URL(urls[0]);
 
             HttpURLConnection conn = (HttpURLConnection.HTTP_OK){
                     BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
                     for(;;){
-                        String line = br.readline
+                        String line = br.readLine();
                     }
             }
+        }catch(Exception  e){
+            Log.d("URLconnection", e.getMessage());
         }
     }
 
