@@ -92,8 +92,7 @@ public class SignWindow extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if (user == null) return;
-                Intent intent = new Intent(getApplicationContext(), MainWindow.class);
-                startActivity(intent);
+
                 //String msg = "User(uid: " + user.getUid() + ", email: " + user.getEmail() + ", name: " + user.getDisplayName();
                 //Log.d(TAG, msg);
                 //mTvStatus.setText(msg);
@@ -111,6 +110,8 @@ public class SignWindow extends AppCompatActivity {
                     response.getError().printStackTrace();
                 }
             }
+            Intent intent = new Intent(getApplicationContext(), MainWindow.class);
+            startActivity(intent);
         }
     }
 }

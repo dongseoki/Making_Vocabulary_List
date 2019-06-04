@@ -18,12 +18,14 @@
         <activity android:name=".ExamWindow" />
         <activity android:name=".NotificationWindow" />
         <activity android:name=".MainWindow" />
+
         <activity android:name=".SignWindow">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
         <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
