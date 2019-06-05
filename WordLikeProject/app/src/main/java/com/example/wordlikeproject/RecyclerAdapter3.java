@@ -52,13 +52,8 @@ public class RecyclerAdapter3 extends RecyclerView.Adapter<RecyclerAdapter3.Item
         listData.add(data);
     }
 
-    void deleteAllItem() {
-        //
-        listData.clear();
-    }
-    void deleteItem(int position) {
-        listData.remove(position);
-    }
+    void deleteAllItem() { listData.clear(); }
+    void deleteItem(int position) { listData.remove(position); }
 
     // RecyclerView의 핵심인 ViewHolder 입니다.
     // 여기서 subView를 setting 해줍니다.

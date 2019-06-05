@@ -31,11 +31,11 @@ public class WordsListsDownloadCenter extends AppCompatActivity {
     String insertWordList = "insert_WordsList.php";//  var 1~2까지 넣고, 각각 멤버 번호, 제목
     String insertWord = "select_Word.php"; // var 1~4까지 넣고 , 각각 list번호, 스펠링, 뜻, 문장
 
+
     String json = "";
     SearchView searchButton;
     RecyclerView recyclerView;
 
-    private LinearLayout mLayout;
     int selected = -1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,29 +43,22 @@ public class WordsListsDownloadCenter extends AppCompatActivity {
 
         setContentView(R.layout.activity_words_lists_download_center);
         searchButton = findViewById(R.id.searchButton);
-        mLayout = (LinearLayout) findViewById(R.id.OnlienWordListItem);
         init();
 
-        PhpConn task = new PhpConn();
         try {
-            json = task.execute(urll + selectWordList).get();
-            getResult(json, 1); // type 1 : list 받아오기
+            getData(urll + selectWordList);
         }
         catch(Exception e){
             System.out.println(e);
         }
-
-        adapter.notifyItemRangeInserted(0, adapter.getItemCount());
 
         recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getApplicationContext(), recyclerView,
                 new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
                         Toast.makeText(getApplicationContext(), adapter.getItemTitle(position)+"이 선택됨.", Toast.LENGTH_SHORT).show();
+                        System.out.println(position);
                         selected = position;
-                        mLayout.setBackgroundColor(0xF0D0DBAF);
-
-
                     }
                     public void onLongItemClick(View view, int position) {
                         Toast.makeText(getApplicationContext(), adapter.getItemTitle(position)+"이 선택됨.", Toast.LENGTH_SHORT).show();
@@ -112,52 +105,26 @@ public class WordsListsDownloadCenter extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "아무것도 선택되지 않음", Toast.LENGTH_SHORT).show();
         }
         else {
-            System.out.println(urll+deleteWordList+"?var1=" + adapter.getItemTitle(selected) + "&var2=" + adapter.getItemAuth(selected));
+            System.out.println(adapter.getItemCount());
             adapter.deleteItem(selected);
-
-            PhpConn task = new PhpConn();
-            task.execute(urll+selectWordList+"?var1=" + searchButton.getQuery());
-
+            getData(urll+deleteWordList+"?var1=" + adapter.getItemTitle(selected) + "&var2=" + adapter.getItemAuth(selected));
 
             adapter.notifyItemRemoved(selected);
             selected = -1;
+
         }
     }
     public void onSearchButtonClicekd()
     {
-        if(selected == -1){
-            Toast.makeText(getApplicationContext(), "아무것도 선택되지 않음", Toast.LENGTH_SHORT).show();
-        }
-        else {
-            int tmp = adapter.getItemCount();
-            adapter.deleteAllItem();
-            adapter.notifyItemRangeRemoved(0, tmp);
-            PhpConn task = new PhpConn();
-            try {
-                json = task.execute(urll + selectWordList + "?var1=" + searchButton.getQuery()).get();
-                getResult(json, 1); // 1 type, 리스트
-            } catch (Exception e) {
-                System.out.println(e);
-            }
+        int tmp = adapter.getItemCount();
+        adapter.deleteAllItem();
+        adapter.notifyItemRangeRemoved(0, tmp);
+        try {
+            getData(urll + selectWordList + "?var1=" + searchButton.getQuery());
+        } catch (Exception e) {
+            System.out.println(e);
         }
     }
-
-    public void onPeepButtonClicked(View view){
-//        PhpConn task = new PhpConn();
-//        try {
-//            json = task.execute(urll + selectWord + "?var1=" + adapter.getItemTitle(selected) + "&var2=" + adapter.getItemAuth(selected)).get();
-//            getResult(json, 2); // 2 type, 단어
-//        } catch (Exception e) {
-//            System.out.println(e);
-//        }
-        Intent intent=new Intent(WordsListsDownloadCenter.this, PreviewPopUpWord.class);
-        intent.putExtra("Title", adapter.getItemTitle(selected));
-        intent.putExtra("membershipNumber", adapter.getItemAuth(selected));
-
-        startActivity(intent);
-    }
-
-
 
     private void init() {
         recyclerView = findViewById(R.id.recyclerView);
@@ -178,7 +145,7 @@ public class WordsListsDownloadCenter extends AppCompatActivity {
 
             if(type == 1) {
 
-                for (int i = 1; i < jsonArray.length(); i++) {
+                for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject subJsonObject = jsonArray.getJSONObject(i);
                     String num = subJsonObject.getString("membershipNumber");
                     String title = subJsonObject.getString("Title");
@@ -205,52 +172,45 @@ public class WordsListsDownloadCenter extends AppCompatActivity {
         }
     }
 
+    public void getData(String url) {
+        class GetDataJSON extends AsyncTask<String, Void, String> {
 
-    private class PhpConn extends AsyncTask<String,String,String> {
-        String output;
-        @Override
-        protected String doInBackground(String... params) {
-            output = "";
-            try {
-                //연결 url 설정
-                URL url = new URL(params[0]);
+            @Override
+            protected String doInBackground(String... params) {
 
-                //커넥션 객체 생성
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                String uri = params[0];
 
-                //연결되었으면
-                if(conn != null){
-                    conn.setConnectTimeout(10000);
-                    conn.setUseCaches(false);
-                    //연결된 코드가 리턴되면
-                    if(conn.getResponseCode() == HttpURLConnection.HTTP_OK){
-                        BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                        int i = 0 ;
-                        for(;;){
-                            //웹상에 보이는 텍스트를 라인단위로 읽어 저장
-                            String line = br.readLine();
-                            if(line == null)
-                                break;
-                            i++;
-                            output += line;
-                        }
-                        br.close();
-                        conn.disconnect();
+                BufferedReader bufferedReader = null;
+                try {
+                    URL url = new URL(uri);
+                    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                    StringBuilder sb = new StringBuilder();
+
+                    bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+
+                    String json;
+                    while ((json = bufferedReader.readLine()) != null) {
+                        sb.append(json + "\n");
                     }
-                    conn.disconnect();
-                }else{
-                    System.out.println("실패ㅡㅡ");
+
+                    return sb.toString().trim();
+
+                } catch (Exception e) {
+                    return null;
                 }
-            }catch (Exception e){
-                e.printStackTrace();
+
+
             }
 
-            return output;
+            @Override
+            protected void onPostExecute(String result) {
+                json = result;
+                getResult(json, 1);
+            }
         }
-
+        GetDataJSON g = new GetDataJSON();
+        g.execute(url);
     }
-
-
 }
 
 

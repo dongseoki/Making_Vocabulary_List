@@ -93,8 +93,8 @@ public class SignWindow extends AppCompatActivity {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 if (user == null) return;
 
-                //String msg = "User(uid: " + user.getUid() + ", email: " + user.getEmail() + ", name: " + user.getDisplayName();
-                //Log.d(TAG, msg);
+                String msg = "User(uid: " + user.getUid() + ", email: " + user.getEmail() + ", name: " + user.getDisplayName();
+                Log.d(TAG, msg);
                 //mTvStatus.setText(msg);
                 mLoginBtn.setEnabled(false);
 
