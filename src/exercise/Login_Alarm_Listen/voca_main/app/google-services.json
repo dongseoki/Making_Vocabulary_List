@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "433184431580",
+    "firebase_url": "https://voca-f9dee.firebaseio.com",
+    "project_id": "voca-f9dee",
+    "storage_bucket": "voca-f9dee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433184431580:android:2a8363a4f1bdd4f2",
+        "android_client_info": {
+          "package_name": "com.example.voca_main"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "433184431580-cpdhjnvp65r023p2q43a1c9f8ss0oeus.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.voca_main",
+            "certificate_hash": "4b22247c41747b60f817cc48d5f199d9cb4412b9"
+          }
+        },
+        {
+          "client_id": "433184431580-bm87giiv8fmilc8njukbd3hbsos3ad3m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZeEnMMuVihjlpu5yruYDQ4YN67B7kPTw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "433184431580-bm87giiv8fmilc8njukbd3hbsos3ad3m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
