@@ -23,3 +23,21 @@
 |      구현     | 2019-05-22 ~ 2019-05-30 |  소스코드, 코딩표준안 |
 |     테스팅    | 2019-06-03 ~ 2019-06-09 | 테스트 케이스, 보고서 |
 |    유지보수   |       2019-06-09 ~      |                       |
+
+### 조직도 및 역할
+![team_role](https://github.com/dongseoki/Making_Vocabulary_List/blob/master/doc/2_%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EA%B3%84%ED%9A%8D%EC%84%9C/team_role.bmp)
+
+## 생명주기 모델
+폭포수 모델
+
+## 도구
+- Git (Github) : 분산 버전 관리 시스템 (원격 저장소)
+  * 문서와 소스코드의 버전관리 (전체 이력을 기록)
+- AndroidStudio : 통합 개발 환경
+  * 구현 과정에서 android 개발 환경 (Git과 연동)
+- Trello : 문서관리.
+  * 팀의 모든 파일 저장 (가공되지 않은 파일 포함)
+- StarUML : diagram 생성 프로그램
+  * 프로젝트 계획서, 설계서 등 문서 작성
+- Oven : 앱 UI 개발
+  * UI.
